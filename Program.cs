@@ -14,7 +14,36 @@ class Program
         Console.WriteLine("Новый массив:");
         foreach (string element in newArray)
         {
-            Console.WriteLine(element);
+            Console.WriteLine(element );
         }
+    }
+     static string[] FilterArray(string[] array)
+    {
+        int count = 0;
+
+        // Подсчитываем количество строк, длина которых меньше или равна 3 символам
+        foreach (string element in array)
+        {
+            if (element.Length <= 3)
+            {
+                count++;
+            }
+        }
+
+        // Создаем новый массив необходимого размера
+        string[] filteredArray = new string[count];
+
+        // Заполняем новый массив строками, длина которых меньше или равна 3 символам
+        int index = 0;
+        foreach (string element in array)
+        {
+            if (element.Length <= 3)
+            {
+                filteredArray[index] = element;
+                index++;
+            }
+        }
+
+        return filteredArray;
     }
 }
